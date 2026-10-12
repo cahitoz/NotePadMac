@@ -35,7 +35,8 @@
       ]
     },
     "directories": {
-      "output": "dist"
+      "output": "dist",
+      "buildResources": "src/assets"
     },
     "files": [
       "main.js",

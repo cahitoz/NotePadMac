@@ -473,6 +473,13 @@ ipcMain.handle('runner:stop', () => {
 });
 
 app.whenReady().then(() => {
+  if (process.platform === 'darwin' && app.dock) {
+    const dockIconPath = path.join(__dirname, 'src', 'assets', 'icon.png');
+    if (fs.existsSync(dockIconPath)) {
+      app.dock.setIcon(dockIconPath);
+    }
+  }
+
   createWindow();
 
   app.on('activate', () => {
