@@ -1,15 +1,16 @@
 {
   "name": "notepadmac",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Notepad++ clone for macOS with full plugin architecture and built-in power plugins",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --dir",
-    "dist": "electron-builder --mac --publish never",
+    "dist": "electron-builder --mac",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "build": {
+    "publish": null,
     "appId": "com.notepadmac.app",
     "productName": "Notepad++",
     "mac": {
