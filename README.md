@@ -5,7 +5,27 @@ A high-performance **Notepad++ clone built natively for macOS**, preserving the 
 ![macOS](https://img.shields.io/badge/platform-macOS-lightgrey)
 ![Engine](https://img.shields.io/badge/engine-Monaco%20%26%20V8-blue)
 ![Architecture](https://img.shields.io/badge/arch-Apple%20Silicon%20%26%20Intel-green)
+[![Build & Package Notepad++ macOS](https://github.com/cahitoz/NotePadMac/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/cahitoz/NotePadMac/actions/workflows/build-and-release.yml)
 ![License](https://img.shields.io/badge/license-MIT-purple)
+
+---
+
+## 📥 Easy Installation on macOS
+
+1. **Download the Installer**:
+   - Go to [**GitHub Releases**](https://github.com/cahitoz/NotePadMac/releases) (or the latest **[Actions Artifacts](https://github.com/cahitoz/NotePadMac/actions)**).
+   - Download the **`Notepad++-1.0.0.dmg`** file.
+
+2. **Install**:
+   - Open the downloaded `.dmg`.
+   - Drag **Notepad++** into your **Applications** folder.
+
+3. **First-Time Launch (Gatekeeper)**:
+   - Because this is an open-source build, right-click (or Control-click) `Notepad++.app` in Applications and choose **Open**, then click **Open** when prompted.
+   - *(Or run this one-time command in Terminal)*:
+     ```bash
+     xattr -cr /Applications/Notepad++.app
+     ```
 
 ---
 
