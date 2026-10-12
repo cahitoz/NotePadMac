@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer } = require('electron');
+const { contextBridge, ipcRenderer, clipboard } = require('electron');
 const crypto = require('crypto');
 const { XMLParser, XMLBuilder, XMLValidator } = require('fast-xml-parser');
 
@@ -60,6 +60,12 @@ contextBridge.exposeInMainWorld('electronAPI', {
         return null;
       }
     }
+  },
+
+  // Clipboard utility
+  clipboard: {
+    readText: () => clipboard.readText(),
+    writeText: (text) => clipboard.writeText(text)
   },
 
   // Event Listeners from Main process

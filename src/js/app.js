@@ -104,9 +104,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (active) tabsManager.closeTab(active.id);
   });
 
-  document.getElementById('tb-cut').addEventListener('click', () => document.execCommand('cut'));
-  document.getElementById('tb-copy').addEventListener('click', () => document.execCommand('copy'));
-  document.getElementById('tb-paste').addEventListener('click', () => document.execCommand('paste'));
+  document.getElementById('tb-cut').addEventListener('click', () => {
+    const sel = editorManager.getSelection();
+    if (sel) {
+      window.electronAPI.clipboard.writeText(sel);
+      editorManager.replaceSelection('');
+    }
+  });
+  document.getElementById('tb-copy').addEventListener('click', () => {
+    const sel = editorManager.getSelection();
+    if (sel) {
+      window.electronAPI.clipboard.writeText(sel);
+      window.uiManager.showToast('Copied to clipboard', 'info', 1500);
+    }
+  });
+  document.getElementById('tb-paste').addEventListener('click', async () => {
+    const text = await window.electronAPI.clipboard.readText();
+    if (text) {
+      editorManager.replaceSelection(text);
+    }
+  });
   document.getElementById('tb-undo').addEventListener('click', () => editorManager.undo());
   document.getElementById('tb-redo').addEventListener('click', () => editorManager.redo());
 
