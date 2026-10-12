@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --dir",
-    "dist": "electron-builder --mac",
+    "dist": "electron-builder --mac --publish never",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "build": {
