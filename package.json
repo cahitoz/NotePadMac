@@ -1,0 +1,51 @@
+{
+  "name": "notepadmac",
+  "version": "1.0.0",
+  "description": "Notepad++ clone for macOS with full plugin architecture and built-in power plugins",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --dir",
+    "dist": "electron-builder --mac",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "appId": "com.notepadmac.app",
+    "productName": "Notepad++",
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dir",
+        "dmg"
+      ]
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "node_modules/**/*"
+    ]
+  },
+  "keywords": [
+    "notepad++",
+    "mac",
+    "text-editor",
+    "plugins",
+    "xml-tools",
+    "compare",
+    "diff"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "dependencies": {
+    "fast-xml-parser": "^4.5.3",
+    "monaco-editor": "^0.52.2"
+  },
+  "devDependencies": {
+    "electron": "^41.2.0",
+    "electron-builder": "^26.15.3"
+  }
+}

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notepad++ (macOS)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Window Header / Drag Region -->
+  <header class="app-header">
+    <div class="app-title-badge">
+      <svg class="npp-chameleon-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.5 9.5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m-15 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m7.5-6.5C6.8 3 2.7 6.8 2.2 12c.5 5.2 4.6 9 9.8 9s9.3-3.8 9.8-9c-.5-5.2-4.6-9-9.8-9m0 16c-3.9 0-7.1-2.9-7.7-6.8.6-3.9 3.8-6.8 7.7-6.8s7.1 2.9 7.7 6.8c-.6 3.9-3.8 6.8-7.7 6.8z"/>
+      </svg>
+      <span>Notepad++</span>
+    </div>
+    <span class="app-window-filename" id="app-window-filename">new 1</span>
+    <div class="header-spacer"></div>
+    <div class="header-actions">
+      <button class="tool-btn" id="btn-theme-toggle" title="Toggle Light / Dark Theme">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Iconic Notepad++ Toolbar -->
+  <nav class="toolbar">
+    <!-- File -->
+    <button class="tool-btn" id="tb-new" title="New (Cmd+N)">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-open" title="Open... (Cmd+O)">
+      <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-save" title="Save (Cmd+S)">
+      <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-save-all" title="Save All (Cmd+Alt+S)">
+      <svg viewBox="0 0 24 24"><path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h1"/><path d="M21 16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9l4 4v10a2 2 0 0 1-2 2z"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-close" title="Close Current Tab (Cmd+W)">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <div class="tool-separator"></div>
+
+    <!-- Edit -->
+    <button class="tool-btn" id="tb-cut" title="Cut (Cmd+X)">
+      <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-copy" title="Copy (Cmd+C)">
+      <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-paste" title="Paste (Cmd+V)">
+      <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-undo" title="Undo (Cmd+Z)">
+      <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-redo" title="Redo (Cmd+Shift+Z)">
+      <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+    </button>
+
+    <div class="tool-separator"></div>
+
+    <!-- Search -->
+    <button class="tool-btn" id="tb-find" title="Find... (Cmd+F)">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-replace" title="Replace... (Cmd+H)">
+      <svg viewBox="0 0 24 24"><path d="M14 4h7v7"/><path d="M21 4l-7 7"/><path d="M10 20H3v-7"/><path d="M3 20l7-7"/></svg>
+    </button>
+
+    <div class="tool-separator"></div>
+
+    <!-- View & Display -->
+    <button class="tool-btn" id="tb-zoom-in" title="Zoom In (Cmd+=)">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-zoom-out" title="Zoom Out (Cmd+-)">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-wordwrap" title="Toggle Word Wrap (Alt+Z)">
+      <svg viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20 10c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8h1"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-show-chars" title="Show All Characters / Whitespace">
+      <svg viewBox="0 0 24 24"><path d="M19 4H10a4 4 0 0 0 0 8h2v8"/><path d="M18 4v16"/><path d="M14 4v16"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-minimap" title="Toggle Document Map / Minimap">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="3" x2="16" y2="21"/></svg>
+    </button>
+
+    <div class="tool-separator"></div>
+
+    <!-- Notepad++ Plugins Quick Access -->
+    <button class="tool-btn" id="tb-compare" title="Compare Plugin: Diff Active Tab (Alt+D)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="3" width="8" height="18" rx="1"/><line x1="7" y1="8" x2="7" y2="8.01"/><line x1="17" y1="12" x2="17" y2="12.01"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-xml-format" title="XML Tools: Pretty Print / Indent XML">
+      <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-json-format" title="JSON Tools: Format JSON (Indent 2)">
+      <svg viewBox="0 0 24 24"><path d="M4 7c0-2.2 1.8-4 4-4"/><path d="M4 17c0 2.2 1.8 4 4 4"/><path d="M20 7c0-2.2-1.8-4-4-4"/><path d="M20 17c0 2.2-1.8 4-4 4"/><circle cx="12" cy="12" r="1"/></svg>
+    </button>
+    <button class="tool-btn" id="tb-runner" title="NppExec: Run Script (F5)">
+      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
+
+    <div class="tool-separator"></div>
+
+    <!-- Plugins Admin -->
+    <button class="tool-btn" id="tb-plugins-admin" title="Plugins Admin (Cmd+Shift+P)">
+      <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+    </button>
+  </nav>
+
+  <!-- Multi-Tab Strip -->
+  <div class="tabs-container">
+    <div class="tabs-strip" id="tabs-strip">
+      <!-- Tabs dynamically injected here -->
+    </div>
+    <button class="new-tab-btn" id="btn-new-tab" title="New Tab (Cmd+N)">+</button>
+  </div>
+
+  <!-- Compare Mode Header Banner (Visible during comparison) -->
+  <div class="compare-banner" id="compare-banner">
+    <div class="compare-info">
+      <span>Comparing: <strong id="compare-left-title">Tab 1</strong> ⟷ <strong id="compare-right-title">Tab 2</strong></span>
+      <span id="compare-diff-count" class="plugin-badge">Diff active</span>
+    </div>
+    <div class="compare-actions">
+      <button class="compare-btn" id="btn-diff-prev" title="Previous Difference (Shift+F8)">▲ Prev Diff</button>
+      <button class="compare-btn" id="btn-diff-next" title="Next Difference (F8)">▼ Next Diff</button>
+      <button class="compare-btn" id="btn-diff-clear" title="Close Comparison">✕ Close Compare</button>
+    </div>
+  </div>
+
+  <!-- Workspace Container: Single Editor & Diff Editor -->
+  <main class="workspace-container">
+    <div id="editor-container"></div>
+    <div id="diff-container"></div>
+
+    <!-- Collapsible Console Output Panel (NppExec runner) -->
+    <div class="console-panel" id="console-panel">
+      <div class="console-header">
+        <span>NppExec Console Output</span>
+        <div class="console-header-actions">
+          <button class="btn" style="padding: 2px 6px; font-size: 10px;" id="btn-console-clear">Clear</button>
+          <button class="btn" style="padding: 2px 6px; font-size: 10px;" id="btn-console-stop">Stop</button>
+          <button class="modal-close-btn" id="btn-console-close">✕</button>
+        </div>
+      </div>
+      <div class="console-output" id="console-output"></div>
+    </div>
+  </main>
+
+  <!-- Notepad++ Status Bar -->
+  <footer class="statusbar">
+    <div class="status-segment" id="sb-pos">Ln 1, Col 1, Sel 0</div>
+    <div class="status-segment" id="sb-doc-stats">Length: 0  Lines: 1</div>
+    <div class="status-segment clickable" id="sb-eol" title="Click to toggle CRLF / LF">Unix (LF)</div>
+    <div class="status-segment clickable" id="sb-encoding" title="Click to change encoding">UTF-8</div>
+    <div class="status-segment clickable" id="sb-ins" title="Insert / Overwrite Mode">INS</div>
+    <div class="status-fill"></div>
+    <div class="status-segment clickable" id="sb-language" title="Click to change language">Plain Text ▾</div>
+  </footer>
+
+  <!-- Toasts Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Notepad++ Find & Replace Dialog -->
+  <div class="modal-overlay" id="find-replace-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Find / Replace</span>
+        </div>
+        <button class="modal-close-btn" id="btn-close-find">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="tab-nav">
+          <button class="tab-nav-btn active" data-findtab="find">Find</button>
+          <button class="tab-nav-btn" data-findtab="replace">Replace</button>
+          <button class="tab-nav-btn" data-findtab="mark">Mark</button>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">Find what:</label>
+          <input type="text" class="form-input" id="find-input" placeholder="Search query...">
+        </div>
+
+        <div class="form-row" id="replace-row" style="display: none;">
+          <label class="form-label">Replace with:</label>
+          <input type="text" class="form-input" id="replace-input" placeholder="Replacement...">
+        </div>
+
+        <div class="options-grid">
+          <label class="checkbox-label"><input type="checkbox" id="find-opt-case"> Match case</label>
+          <label class="checkbox-label"><input type="checkbox" id="find-opt-word"> Match whole word only</label>
+          <label class="checkbox-label"><input type="checkbox" id="find-opt-wrap" checked> Wrap around</label>
+          <label class="checkbox-label"><input type="checkbox" id="find-opt-regex"> Regular expression</label>
+        </div>
+
+        <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;" id="find-status">Ready</div>
+
+        <div class="dialog-actions">
+          <button class="btn btn-primary" id="btn-find-next">Find Next</button>
+          <button class="btn" id="btn-find-prev">Find Prev</button>
+          <button class="btn" id="btn-find-count">Count</button>
+          <button class="btn" id="btn-replace-one" style="display: none;">Replace</button>
+          <button class="btn" id="btn-replace-all" style="display: none;">Replace All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Plugins Admin Dialog -->
+  <div class="modal-overlay" id="plugins-admin-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          <span>Plugins Admin</span>
+        </div>
+        <button class="modal-close-btn" id="btn-close-plugins-admin">✕</button>
+      </div>
+      <div class="modal-body" style="height: 420px; display: flex; flex-direction: column;">
+        <div class="tab-nav">
+          <button class="tab-nav-btn active" data-plugintab="installed">Installed</button>
+          <button class="tab-nav-btn" data-plugintab="available">Available (Marketplace)</button>
+        </div>
+
+        <div class="plugins-search-bar">
+          <input type="text" class="form-input" id="plugins-search-input" placeholder="Search plugins by name, tag, or description..." style="flex: 1;">
+          <button class="btn" id="btn-open-plugins-dir" title="Open Plugins Directory in Finder">Open Plugins Folder</button>
+          <button class="btn" id="btn-reload-plugins" title="Hot-reload plugins">Reload</button>
+        </div>
+
+        <div class="plugins-table-wrapper" id="plugins-table-wrapper">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span style="font-size: 11px; color: var(--text-muted); flex: 1; align-self: center;">Plugins run inside the Notepad++ macOS JavaScript & Scripting Host.</span>
+        <button class="btn" id="btn-close-plugins-admin-footer">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compare Tab Picker Modal -->
+  <div class="modal-overlay" id="compare-picker-modal">
+    <div class="modal-dialog" style="width: 440px;">
+      <div class="modal-header">
+        <div class="modal-title">Compare with Other Tab</div>
+        <button class="modal-close-btn" id="btn-close-compare-picker">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom: 12px; font-size: 12px;">Select which tab to compare against the active file:</p>
+        <div class="form-row">
+          <select class="form-input" id="compare-target-select" style="font-size: 13px;"></select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="btn-cancel-compare">Cancel</button>
+        <button class="btn btn-primary" id="btn-execute-compare">Compare</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- XML XPath Evaluator Modal -->
+  <div class="modal-overlay" id="xpath-modal">
+    <div class="modal-dialog" style="width: 580px;">
+      <div class="modal-header">
+        <div class="modal-title">XML Tools — XPath Evaluator</div>
+        <button class="modal-close-btn" id="btn-close-xpath">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <label class="form-label">XPath Expression (e.g. <code>//book/title</code> or <code>/root/item[@id='1']</code>):</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" class="form-input" id="xpath-query-input" placeholder="Type XPath query..." style="flex: 1;">
+            <button class="btn btn-primary" id="btn-run-xpath">Evaluate</button>
+          </div>
+        </div>
+        <div class="form-row" style="margin-top: 12px;">
+          <label class="form-label">Matching Results:</label>
+          <div class="form-input" id="xpath-results" style="height: 180px; overflow-y: auto; white-space: pre; font-size: 11px;">Enter an XPath expression above and click Evaluate.</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="btn-close-xpath-footer">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JSON Tree Viewer Modal -->
+  <div class="modal-overlay" id="json-tree-modal">
+    <div class="modal-dialog" style="width: 620px; height: 500px;">
+      <div class="modal-header">
+        <div class="modal-title">JSON Tools — Interactive Tree Viewer</div>
+        <button class="modal-close-btn" id="btn-close-json-tree">✕</button>
+      </div>
+      <div class="modal-body" style="flex: 1; display: flex; flex-direction: column;">
+        <div style="margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 11px; color: var(--text-muted);">Collapsible tree visualization of the current JSON document.</span>
+          <button class="btn" id="btn-copy-json-tree" style="font-size: 11px;">Copy Clean JSON</button>
+        </div>
+        <div class="form-input" id="json-tree-container" style="flex: 1; overflow-y: auto; font-family: var(--font-code); font-size: 12px; line-height: 1.5;"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="btn-close-json-tree-footer">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TextFX Statistics Modal -->
+  <div class="modal-overlay" id="stats-modal">
+    <div class="modal-dialog" style="width: 380px;">
+      <div class="modal-header">
+        <div class="modal-title">Document Summary & Word Count</div>
+        <button class="modal-close-btn" id="btn-close-stats">✕</button>
+      </div>
+      <div class="modal-body" id="stats-modal-body">
+        <!-- Injected dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="btn-close-stats-footer">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- About / Help Modal -->
+  <div class="modal-overlay" id="about-modal">
+    <div class="modal-dialog" style="width: 500px;">
+      <div class="modal-header">
+        <div class="modal-title">About Notepad++ (macOS Edition)</div>
+        <button class="modal-close-btn" id="btn-close-about">✕</button>
+      </div>
+      <div class="modal-body" style="line-height: 1.6;">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+          <svg class="npp-chameleon-icon" style="width: 36px; height: 36px;" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.5 9.5c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m-15 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2m7.5-6.5C6.8 3 2.7 6.8 2.2 12c.5 5.2 4.6 9 9.8 9s9.3-3.8 9.8-9c-.5-5.2-4.6-9-9.8-9m0 16c-3.9 0-7.1-2.9-7.7-6.8.6-3.9 3.8-6.8 7.7-6.8s7.1 2.9 7.7 6.8c-.6 3.9-3.8 6.8-7.7 6.8z"/>
+          </svg>
+          <div>
+            <h3 style="font-size: 15px;">Notepad++ (macOS Edition) v1.0.0</h3>
+            <p style="font-size: 12px; color: var(--text-muted);">High performance editor with Scintilla/Monaco engine & Plugins Ecosystem</p>
+          </div>
+        </div>
+        <p style="font-size: 12px; margin-bottom: 8px;">Built-in power plugins enabled:</p>
+        <ul style="margin-left: 20px; font-size: 12px; margin-bottom: 12px;">
+          <li><strong>Compare Plugin</strong>: Side-by-side visual diff with navigation</li>
+          <li><strong>XML Tools</strong>: Pretty print, linearize, syntax validator, XPath evaluator</li>
+          <li><strong>JSON Tools</strong>: Formatter, minifier, syntax checker, tree viewer</li>
+          <li><strong>TextFX Tools</strong>: Sort, deduplicate, casing, base64/url encode</li>
+          <li><strong>NppExec</strong>: Live code/script runner (Node, Python, Bash) with console</li>
+        </ul>
+        <p style="font-size: 11px; color: var(--text-muted);">Custom plugins can be dropped into the user's plugin folder or installed from the Plugins Admin marketplace.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="btn-close-about-footer">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monaco AMD Loader -->
+  <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+
+  <!-- Application Modules -->
+  <script src="js/editor-manager.js"></script>
+  <script src="js/tabs-manager.js"></script>
+  <script src="js/find-replace.js"></script>
+  <script src="js/plugin-host.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

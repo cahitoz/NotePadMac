@@ -1,0 +1,7 @@
+{
+  "id": "case-inverter",
+  "name": "Case Inverter Plugin",
+  "version": "1.0.0",
+  "description": "Sample custom plugin that inverts upper/lowercase characters of selection.",
+  "author": "Community Developer"
+}
