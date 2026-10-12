@@ -20,6 +20,7 @@ function createWindow() {
     minWidth: 800,
     minHeight: 500,
     title: 'Notepad++ (macOS)',
+    icon: path.join(__dirname, 'src', 'assets', 'icon.png'),
     backgroundColor: '#1e1e1e',
     titleBarStyle: 'hiddenInset', // Mac sleek integrated traffic lights
     webPreferences: {
